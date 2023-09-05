@@ -13,21 +13,58 @@ namespace CollectionsMasterConsoleUI
 {
     class Program
     {
-        public static void Drop3(int[] XRay)
-        {
-            for (int i=0; i<XRay.Length; i++)
-            {
-                if (XRay[i] % 3 == 0)
-                {
-                    Console.WriteLine($"{XRay[i]} ia a multiple of 3");
-                }
-                else
-                {
-                    Console.WriteLine($"{XRay[i]} ");
-                }//else
-            }//for
-        }//Drop3
 
+
+        public static void BarfRand(int[] XRay) //#1/20
+        {
+            int tmpRand = 0;
+            var rand = new Random();
+            for (int i = 0; i < 50; i++)
+            {
+                tmpRand = rand.Next(0, 50);
+                Console.WriteLine($"Array Random: {tmpRand}");
+                XRay[i] = tmpRand;
+            }//For
+        }//BarfRand
+
+
+        public static void ArrayPrinter(int[] array1) //#4/#6/#8 20
+        {
+            for (int i = 0; i < array1.Length; i++)
+            {
+                Console.WriteLine($"{array1[i]}");
+            }//end for
+        }//ArrayPrinter
+
+
+        public static void ListPrinter(List<int> Alist)  //#5/20
+        {
+            for (int i = 0; i < Alist.Count; i++)
+            {
+                Console.WriteLine($"Method Print List: {Alist[i]} ");
+            }//for
+        }//ListPrinter
+
+
+
+        public static void RevArray(int[] XRay) //#7/20
+        {
+            //inplace array reversal
+            int left = 0;
+            int right = XRay.Length - 1;
+
+            while (left < right)
+            {
+                // Swap XRay[left] and XRay[right]
+                int temp = XRay[left];
+                XRay[left] = XRay[right];
+                XRay[right] = temp;
+
+                // Move the pointers towards each other
+                left++;
+                right--;
+            }//While
+        }//RevArray
 
         //public static void RevArray(int[] XRay) {
         //    {
@@ -52,24 +89,7 @@ namespace CollectionsMasterConsoleUI
         //}//RevArray
 
 
-        public static void RevArray(int[] XRay)
-        {
-            //inplace array reversal
-            int left = 0;
-            int right = XRay.Length - 1;
-        
-            while (left < right)
-            {
-                // Swap XRay[left] and XRay[right]
-                int temp = XRay[left];
-                XRay[left] = XRay[right];
-                XRay[right] = temp;
-       
-                // Move the pointers towards each other
-                left++;
-                right--;
-            }//While
-        }//RevArray
+
 
         //public static void RevArray2(int[] XRay)
         //{
@@ -80,23 +100,31 @@ namespace CollectionsMasterConsoleUI
         //        newArray[j] = XRay[i];
         //        j++;
         //    }//for
-             
+
         //}//RevArray2
 
-        public static void BarfRand(int[] XRay) {
-            int tmpRand = 0;
-            var rand = new Random();
-            for (int i = 0; i < 50; i++)
+
+
+
+        public static void Drop3(int[] XRay) //#9/20
+        {
+            for (int i=0; i<XRay.Length; i++)
             {
-                tmpRand = rand.Next(0,50);
-                Console.WriteLine($"Array Random: {tmpRand}");
-                XRay[i] = tmpRand;
-            }//For
-         }//BarfRand
+                if (XRay[i] % 3 == 0)
+                {
+                    Console.WriteLine($"{XRay[i]} ia a multiple of 3");
+                }
+                else
+                {
+                    Console.WriteLine($"{XRay[i]} ");
+                }//else
+            }//for
+        }//Drop3
 
 
 
-        public static void RandNumForList(List<int> intList)
+
+        public static void RandNumForList(List<int> intList) //#13/20
         {
             int tmpRand = 0;
             var rand = new Random();
@@ -109,7 +137,10 @@ namespace CollectionsMasterConsoleUI
         }//RandNumforList
 
 
-        public static void userNbrInListCheck(List<int> intList)
+
+
+
+        public static void userNbrInListCheck(List<int> intList) //#15/20
         {
             int usrInt = 0;
             Console.WriteLine($"Enter an integer: ");
@@ -137,25 +168,7 @@ namespace CollectionsMasterConsoleUI
         }//userNbrInListCheck
 
 
-
-        public static void ArrayPrinter(int[] array1)
-        {
-            for (int i = 0; i < array1.Length; i++)
-            {
-                Console.WriteLine($"{array1[i]}");
-            }//end for
-        }//ArrayPrinter
-
-
-        public static void ListPrinter(List<int> Alist)
-        {
-            for (int i = 0; i < Alist.Count; i++) { 
-            Console.WriteLine($"Method Print List: {Alist[i]} ");
-            }//for
-        }//ListPrinter
-
-
-        public static void ListPrinter2(List<int> intList)
+        public static void ListPrinter2(List<int> intList)  //#16/20
         {
             for (int i = 0; i < intList.Count; i++)
             {
@@ -163,7 +176,11 @@ namespace CollectionsMasterConsoleUI
             }//for
         }
 
-        public static void RemoveOddNbrList(List<int> intList)
+
+
+
+
+        public static void RemoveOddNbrList(List<int> intList) //#17/20
         {
             for (int i = 0; i < intList.Count; i++) { 
                 if (intList[i] % 2 != 0)
@@ -173,6 +190,10 @@ namespace CollectionsMasterConsoleUI
         }//for
          //Console.WriteLine($"Method Print List: {intList[i]} ");
     }//RemoveOddNbrList
+
+
+
+
 
 
 
